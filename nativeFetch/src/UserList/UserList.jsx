@@ -9,7 +9,7 @@ function UserList() {
     useEffect(() => {
         async function fetchData() {
             try {
-               setLoading(null);
+               setLoading(true);
                const response = await fetch('https://jsonplaceholder.typicode.com/users');
                
                if(!response.ok) {
@@ -25,7 +25,7 @@ function UserList() {
             }
         }
         fetchData()
-        const jedaRefresh = setInterval(fetchData, 1000);
+        const jedaRefresh = setInterval(fetchData, 30000);
         return() => {clearInterval(jedaRefresh); }
     }, []);
 
